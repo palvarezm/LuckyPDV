@@ -2,6 +2,7 @@ package com.example.luckypdv.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -9,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.luckypdv.R;
+import com.example.luckypdv.models.User;
 import com.example.luckypdv.persistence.DatabaseHelper;
 import com.example.luckypdv.utilities.InputValidation;
 import com.google.android.material.button.MaterialButton;
@@ -69,10 +71,13 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        if (databaseHelper.checkUser(tietUsername.getText().toString().trim()
-                , tietPassword.getText().toString().trim())) {
-            Toast.makeText(this, "Credenciales correctas", Toast.LENGTH_SHORT).show();
+        User user = databaseHelper.checkUser(tietUsername.getText().toString().trim()
+                , tietPassword.getText().toString().trim());
+        if ( user != null) {
+            Intent mainIntent = new Intent(this, MainActivity.class);
+            mainIntent.putExtras(user.toBundle());
             emptyInputEditText();
+            startActivity(mainIntent);
 
         } else {
             Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();

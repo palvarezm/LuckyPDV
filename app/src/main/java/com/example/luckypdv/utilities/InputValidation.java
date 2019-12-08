@@ -63,19 +63,6 @@ public class InputValidation {
         return true;
     }
 
-    public boolean isInputEditTextMatches(TextInputEditText textInputEditText1, TextInputEditText textInputEditText2, TextInputLayout textInputLayout, String message) {
-        String value1 = textInputEditText1.getText().toString().trim();
-        String value2 = textInputEditText2.getText().toString().trim();
-        if (!value1.contentEquals(value2)) {
-            textInputLayout.setError(message);
-            hideKeyboardFrom(textInputEditText2);
-            return false;
-        } else {
-            textInputLayout.setErrorEnabled(false);
-        }
-        return true;
-    }
-
     /**
      * method to Hide keyboard
      *
