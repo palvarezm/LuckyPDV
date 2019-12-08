@@ -18,4 +18,6 @@
     <string name="menu_sign_out">Salir</string>
     <string name="menu_shops">Puntos de venta</string>
     <string name="nav_header_welcome">Bienvenido</string>
+    <string name="prompt_shop_name">Nombre de la tienda</string>
+    <string name="prompt_shop_address">Direccion de la tienda</string>
 </resources>

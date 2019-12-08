@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_layout"
+    android:layout_margin="@dimen/medium_margin">
+
+    <ImageView
+        android:id="@+id/iv_google_maps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_gmap"/>
+
+    <TextView
+        android:id="@+id/tv_shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/iv_google_maps"
+        app:layout_constraintStart_toEndOf="@id/iv_google_maps"
+        android:textSize="@dimen/font_medium"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:text="@string/prompt_shop_name"/>
+
+    <TextView
+        android:id="@+id/tv_shop_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_shop_name"
+        app:layout_constraintStart_toEndOf="@id/iv_google_maps"
+        android:textSize="@dimen/font_small"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/minimun_margin"
+        android:text="@string/prompt_shop_address"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
