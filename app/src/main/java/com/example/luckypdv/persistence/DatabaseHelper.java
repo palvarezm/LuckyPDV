@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.luckypdv.models.User;
 
@@ -50,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         User user = new User();
 
         user.setName("Antonio Herrera Ubillus");
-        user.setImage("https://img.freepik.com/free-vector/businessman-profile-cartoon_18591-58479.jpg?size=338&ext=jpg");
+        user.setImage("https://www.orbitmedia.com/wp-content/uploads/2016/08/Andy-Profile-600-400x400.png");
         user.setEmail("antonioherrerau@gmail.com");
         user.setPassword("123456");
 
@@ -63,10 +64,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean checkUser(String email, String password) {
+    public User checkUser(String email, String password) {
 
         String[] columns = {
-                COLUMN_USER_ID
+                COLUMN_USER_NAME,
+                COLUMN_USER_IMAGE,
+                COLUMN_USER_EMAIL,
         };
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String selection = COLUMN_USER_EMAIL + " = ?" + " AND " + COLUMN_USER_PASSWORD + " = ?";
@@ -84,12 +87,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int cursorCount = cursor.getCount();
 
-        cursor.close();
         sqLiteDatabase.close();
         if (cursorCount > 0) {
-            return true;
+            cursor.moveToFirst();
+            User user = new User();
+            user.setImage(cursor.getString(cursor.getColumnIndex(COLUMN_USER_IMAGE)));
+            user.setName(cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)));
+            user.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)));
+            return user;
         }
 
-        return false;
+        cursor.close();
+        return null;
     }
 }
