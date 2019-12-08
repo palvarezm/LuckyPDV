@@ -9,6 +9,12 @@
         android:id="@+id/nav_shops"
         android:name="com.example.luckypdv.fragments.ShopListFragment"
         android:label="@string/menu_shops"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_shop_list" />
+
+    <fragment
+        android:id="@+id/nav_shops_map"
+        android:name="com.example.luckypdv.fragments.ShopsMapFragment"
+        android:label="@string/menu_shops"
+        tools:layout="@layout/fragment_shops_map" />
 
 </navigation>

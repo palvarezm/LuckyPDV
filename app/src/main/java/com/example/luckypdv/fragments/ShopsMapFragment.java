@@ -1,39 +1,44 @@
 package com.example.luckypdv.fragments;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.luckypdv.R;
-import com.example.luckypdv.adapters.ShopAdapter;
 import com.example.luckypdv.models.Shop;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopListFragment extends Fragment {
+public class ShopsMapFragment extends Fragment {
     private List<Shop> shopList;
-    private ShopAdapter shopAdapter;
-    private RecyclerView rvShopList;
 
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_shop_list, container, false);
 
-        initViews(root);
-        initData();
-        initList();
-
-        return root;
+    public ShopsMapFragment() {
     }
 
-    private void initViews(View root) {
-        rvShopList = root.findViewById(R.id.rv_shop_list);
+    public static ShopsMapFragment newInstance() {
+        ShopsMapFragment fragment = new ShopsMapFragment();
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View root =  inflater.inflate(R.layout.fragment_shops_map, container, false);
+
+        initData();
+
+        return root;
     }
 
     private void initData() {
@@ -66,13 +71,5 @@ public class ShopListFragment extends Fragment {
         shop.setLatitude(-12.0321406);
         shop.setLongitude(-77.0663581);
         shopList.add(shop);
-    }
-
-    private void initList() {
-        rvShopList.setHasFixedSize(true);
-        shopAdapter  = new ShopAdapter(this, shopList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        rvShopList.setLayoutManager(linearLayoutManager);
-        rvShopList.setAdapter(shopAdapter);
     }
 }
