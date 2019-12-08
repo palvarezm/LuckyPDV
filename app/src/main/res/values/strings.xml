@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LuckyPDV</string>
+    <string name="login_primary_title">APP GESTOR</string>
+    <string name="login_secondary_title">Xplora</string>
+    <string name="version">v.2.0.0</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_username">Usuario</string>
+    <string name="login_sign_in">Ingresar</string>
+    <string name="error_empty">Campo vacio</string>
+    <string name="error_email">No es un email correcto</string>
+</resources>
