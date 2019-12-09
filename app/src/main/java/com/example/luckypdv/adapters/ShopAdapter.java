@@ -45,15 +45,16 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ObjectViewHold
         holder.ivMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavigationView navigationView = fragment.getActivity().findViewById(R.id.nav_view);
-                navigationView.getMenu().performIdentifierAction(R.id.nav_shops_map, 0);
+            NavigationView navigationView = fragment.getActivity().findViewById(R.id.nav_view);
+            navigationView.getMenu().performIdentifierAction(R.id.nav_shops_map, 0);
             }
         });
 
         holder.clItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Item touch");
+                NavigationView navigationView = fragment.getActivity().findViewById(R.id.nav_view);
+                navigationView.getMenu().performIdentifierAction(R.id.nav_shop_products, 0);
             }
         });
     }

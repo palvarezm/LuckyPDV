@@ -10,7 +10,11 @@
             android:title="@string/menu_shops" />
         <item
             android:id="@+id/nav_shops_map"
-            android:title="Map"
+            android:title="@string/menu_shops_map"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_shop_products"
+            android:title="@string/menu_shop_products"
             android:visible="false"/>
         <item
             android:id="@+id/nav_sign_out"

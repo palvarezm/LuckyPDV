@@ -4,9 +4,10 @@
     <color name="colorPrimaryDark">#c6a700</color>
     <color name="colorPrimaryLight">#ffff6b</color>
     <color name="colorSecondary">#0288d1</color>
-    <color name="colorSecondaryDark">#5eb8ff</color>
-    <color name="colorSecondaryLight">#005b9f</color>
+    <color name="colorSecondaryDark">#005b9f</color>
+    <color name="colorSecondaryLight">#5eb8ff</color>
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#FFFF</color>
+    <color name="colorGray">#bdbdbd</color>
     <color name="colorAccent">#D81B60</color>
 </resources>
