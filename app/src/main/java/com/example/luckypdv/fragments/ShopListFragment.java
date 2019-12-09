@@ -23,7 +23,7 @@ public class ShopListFragment extends Fragment {
     private RecyclerView rvShopList;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_shop_list, container, false);
 
         initViews(root);
         initData();
@@ -70,7 +70,7 @@ public class ShopListFragment extends Fragment {
 
     private void initList() {
         rvShopList.setHasFixedSize(true);
-        shopAdapter  = new ShopAdapter(shopList);
+        shopAdapter  = new ShopAdapter(this, shopList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvShopList.setLayoutManager(linearLayoutManager);
         rvShopList.setAdapter(shopAdapter);
