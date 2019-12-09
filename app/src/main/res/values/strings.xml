@@ -23,5 +23,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="google_maps_key">AIzaSyCNYKnYBkP7d6v4qfCLJwbMorpakAm9ytY</string>
+    <string name="google_maps_key">AIzaSyAcCKpsXabWoECEiBZ4rYoULGSox7OrGHY</string>
+    <string name="menu_shop_products">Productos de la tienda</string>
+    <string name="menu_shops_map">Mapa de productos</string>
+    <string name="menu_shop_products_bar_title">Precios</string>
+    <string name="shop_products_title">Reporte de Precios</string>
+    <string name="table_header_sku">SKU</string>
+    <string name="table_header_cost">P. Costo</string>
+    <string name="table_header_highest">P. Rvta mayor</string>
+    <string name="table_header_stock">Stock</string>
 </resources>

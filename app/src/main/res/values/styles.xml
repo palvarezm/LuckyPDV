@@ -25,4 +25,18 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="table_header">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFF</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/colorGray</item>
+    </style>
+
+    <style name="table_text">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">@dimen/minimun_margin</item>
+        <item name="android:background">#FFFF</item>
+    </style>
+
 </resources>
