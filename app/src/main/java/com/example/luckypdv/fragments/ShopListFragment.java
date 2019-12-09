@@ -1,9 +1,13 @@
 package com.example.luckypdv.fragments;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -21,7 +25,8 @@ public class ShopListFragment extends Fragment {
     private List<Shop> shopList;
     private ShopAdapter shopAdapter;
     private RecyclerView rvShopList;
-
+    private EditText etSearch;
+    
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_shop_list, container, false);
 
@@ -34,6 +39,24 @@ public class ShopListFragment extends Fragment {
 
     private void initViews(View root) {
         rvShopList = root.findViewById(R.id.rv_shop_list);
+        etSearch = root.findViewById(R.id.et_search);
+
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                shopAdapter.getFilter().filter(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     private void initData() {

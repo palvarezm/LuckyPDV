@@ -1,10 +1,11 @@
 package com.example.luckypdv.adapters;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,16 +18,18 @@ import com.example.luckypdv.R;
 import com.example.luckypdv.models.Shop;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ObjectViewHolder> {
+public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ObjectViewHolder> implements Filterable {
     private Fragment fragment;
     private List<Shop> shopList;
-    private String TAG = "SHOPADAPTER";
+    private List<Shop> shopListFull;
 
     public ShopAdapter(Fragment fragment, List<Shop> shopList) {
         this.fragment = fragment;
         this.shopList = shopList;
+        shopListFull = new ArrayList<>(shopList);
     }
 
     @NonNull
@@ -63,6 +66,40 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ObjectViewHold
     public int getItemCount() {
         return shopList.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return shopFilter;
+    }
+
+    private Filter shopFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            String charString = charSequence.toString();
+            List<Shop> filteredShopList = new ArrayList<>();
+            if (charString.isEmpty()) {
+                filteredShopList.addAll(shopListFull);
+            } else {
+                for (Shop row : shopListFull) {
+                    if (row.getName().toLowerCase().contains(charString.toLowerCase().trim()) ||
+                            row.getAddress().contains(charString.toLowerCase().trim())) {
+                        filteredShopList.add(row);
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredShopList;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            shopList.clear();
+            shopList.addAll((List) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public class ObjectViewHolder extends RecyclerView.ViewHolder {
         ConstraintLayout clItem;
